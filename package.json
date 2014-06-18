@@ -1,0 +1,26 @@
+{
+  "name": "rhapsody-cli",
+  "version": "0.0.0",
+  "description": "CLI for RhapsodyJS",
+  "main": "index.js",
+  "bin": {
+    "rhapsody-cli": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rhapsody",
+    "rhapsodyjs",
+    "cli",
+    "mvc",
+    "hmvc"
+  ],
+  "author": "talyssonoc",
+  "dependencies": {
+    "fs-extra": "^0.9.1",
+    "lodash": "^2.4.1",
+    "nomnom": "^1.7.0",
+    "wolverine": "0.0.8"
+  }
+}
