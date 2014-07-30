@@ -7,23 +7,7 @@ var fs = require('fs-extra'),
 module.exports = function scaffoldModel(modelName, attributes) {
 	var appPath = process.cwd();
 
-	var model = {
-	  attributes: { },
-
-	  sharedMethods: { },
-
-	  clientMethods: { },
-
-	  serverMethods: { },
-
-	  options: {
-		allowREST: true,
-		middlewares: [],
-		adapter: undefined
-	  },
-
-	  relationships: { }
-	};
+	var model = require('../templates/modelTemplate');
 
 	var attribute,
 		attr,

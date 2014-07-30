@@ -1,7 +1,12 @@
 {
   "name": "rhapsody-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CLI for RhapsodyJS",
+  "author": {
+    "name": "talyssonoc",
+    "email": "talyssonoc@gmail.com"
+  },
+  "license": "MIT",
   "main": "index.js",
   "bin": {
     "rhapsody-cli": "./index.js"
@@ -16,7 +21,6 @@
     "mvc",
     "hmvc"
   ],
-  "author": "talyssonoc",
   "dependencies": {
     "fs-extra": "^0.9.1",
     "lodash": "^2.4.1",

@@ -1,7 +1,6 @@
 var fs = require('fs-extra'),
     path = require('path'),
-    Wolverine = require('wolverine'),
-    Logger = new Wolverine({time: false, printLevel: false}),
+    Logger = require('../logger')(),
     npm = require('npm'),
     _ = require('lodash');
 
@@ -18,7 +17,7 @@ module.exports = function scaffoldApp(appName, rhapsodyVersion) {
 
 	//Copy the scaffold of a project to the app folder
 	try {
-		fs.copySync(path.join(__dirname, '/../appTemplate'), appPath);
+		fs.copySync(path.join(__dirname, '/../templates/appTemplate'), appPath);
 	}
 	catch(err) {
 		Logger.error(err);
@@ -41,16 +40,8 @@ module.exports = function scaffoldApp(appName, rhapsodyVersion) {
 		return Logger.error(err);
 	  }
 
-	  Logger.info('Running "npm install"');
-
-	  //Run 'npm install' inside the new app folder
-	  npm.load({prefix: appPath, loglevel: 'error'}, function (err) {
-		npm.commands.install([], function (er, data) {
-		});
-
-		npm.on('log', function (message) {
-		});
-	  });
+	  Logger.info();
+	  Logger.info('Please, run "cd ' + appName + ' && npm install"');
 
 	});
 };

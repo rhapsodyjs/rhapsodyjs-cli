@@ -1,4 +1,5 @@
-var path = require('path');
+var path = require('path'),
+    Logger = require('./logger')();
 
 var ServerOperations = function(appPath) {
 	this.appPath = appPath;
@@ -8,12 +9,11 @@ ServerOperations.prototype = {
   build: function build() {
   	var self = this;
 
-    //Imports the local RhapsodyJS of the app
-    var Rhapsody = require(path.join(self.appPath, '/node_modules/rhapsody')),
+    var Rhapsody = this.getRhapsody();
     rhapsodyServer = new Rhapsody({
-          root: self.appPath,
-          build: true
-        });
+      root: self.appPath,
+      build: true
+    });
 
     return rhapsodyServer;
   },
@@ -21,14 +21,30 @@ ServerOperations.prototype = {
   run: function run(rhapsodyServer) {
   	var self = this;
 
-    //Imports the local RhapsodyJS of the app
-    var Rhapsody = require(path.join(self.appPath, '/node_modules/rhapsody'));
-    rhapsodyServer = rhapsodyServer || new Rhapsody({
+    rhapsodyServer = rhapsodyServer || new this.getRhapsody()({
       root: self.appPath,
       build: false
     });
 
     rhapsodyServer.open();
+  },
+
+  getRhapsody: function getRhapsody() {
+    try {
+      var Rhapsody = require(path.join(self.appPath, '/node_modules/rhapsody'));
+    }
+    catch(e1) {
+      try {
+        var Rhapsody = require('rhapsody');
+      }
+      catch(e2) {
+      	Logger.fatal();
+        Logger.fatal('You don\'t have RhapsodyJS installed');
+        process.exit(1);
+      }
+    }
+
+    return Rhapsody;
   }
 };
 

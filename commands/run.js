@@ -1,9 +1,9 @@
 module.exports = function(msg, server) {
 	return function(opts) {
-  
+
 	  var extras = opts._;
 	  if(extras.length > 2) {
-	    msg.usage('run [no-build]');
+	    msg.usage('run [options]');
 	    msg.showOptions('no-build', [['-n --no-build', 'Don\'t build again, just run']]);
 	    return;
 	  }

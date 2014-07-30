@@ -4,30 +4,14 @@
 
 var parser = require('nomnom'),
     appPath = process.cwd(),
-    Wolverine = require('wolverine'),
+    getLogger = require('./logger'),
     Messages = require('./messages'),
     ServerOperations = require('./serverOperations'),
     path = require('path');
 
 parser.script('rhapsody');
 
-var Logger = new Wolverine({ printLevel: false, time: false });
-
-Logger.addLevel('required', {
-  color: 'red'
-});
-
-Logger.addLevel('usage', {
-  bold: 'true'
-});
-
-Logger.addLevel('optionsTitle', {
-  color: 'brightWhite'
-});
-
-Logger.addLevel('showOptions', {
-  color: 'grey'
-});
+var Logger = getLogger();
 
 var msg = new Messages(Logger),
     server = new ServerOperations(appPath);
@@ -44,8 +28,8 @@ parser.command('n').callback(newCommand(msg)).help('Create a new app');
  * Scaffolds a new controller or model
  */
 var generateCommand = require('./commands/generate');
-parser.command('generate').callback(generateCommand(msg)).help('Create a new controller or model');
-parser.command('g').callback(generateCommand(msg)).help('Create a new controller or model');
+parser.command('generate').callback(generateCommand(msg)).help('Generate a new controller or model');
+parser.command('g').callback(generateCommand(msg)).help('Generate a new controller or model');
 
 
 /**

@@ -62,9 +62,16 @@ module.exports = {
     enabled: true
   },
 
-  generateClientModels: true,
+  clientModels: {
+    enabled: true,
+    adapter: undefined
+  },
 
   csrf: {
     enabled: false
+  },
+
+  cluster: {
+    enabled: true
   }
 };

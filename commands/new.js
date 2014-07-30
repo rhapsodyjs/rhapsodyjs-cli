@@ -8,7 +8,7 @@ module.exports = function(msg) {
 	  var appScaffolder = require('../scaffolders/appScaffolder');
 	  var appName = opts._[1];
 
-	  appScaffolder(appName, '0.2.0');
+	  appScaffolder(appName, 'latest');
 
 	};
 };
