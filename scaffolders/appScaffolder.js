@@ -28,7 +28,7 @@ module.exports = function scaffoldApp(appName, rhapsodyVersion) {
 	  'name': appName,
 	  'main': 'app.js',
 	  'dependencies': {
-		'rhapsody': ('^' + rhapsodyVersion),
+		'rhapsody': rhapsodyVersion,
 		'ejs': '^0.8.5'
 	  }
 	};
