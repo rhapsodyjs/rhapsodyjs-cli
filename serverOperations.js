@@ -31,7 +31,7 @@ ServerOperations.prototype = {
 
   getRhapsody: function getRhapsody() {
     try {
-      var Rhapsody = require(path.join(self.appPath, '/node_modules/rhapsody'));
+      var Rhapsody = require(path.join(this.appPath, '/node_modules/rhapsody'));
     }
     catch(e1) {
       try {
