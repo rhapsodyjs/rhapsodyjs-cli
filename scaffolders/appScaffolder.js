@@ -1,7 +1,6 @@
 var fs = require('fs-extra'),
     path = require('path'),
     Logger = require('../logger')(),
-    npm = require('npm'),
     _ = require('lodash');
 
 module.exports = function scaffoldApp(appName, rhapsodyVersion) {
