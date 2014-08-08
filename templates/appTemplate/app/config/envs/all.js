@@ -53,6 +53,10 @@ module.exports = {
     allowREST: true
   },
 
+  globals: {
+    models: false
+  },
+
   //If true, uploaded files via form will be at req.file
   upload: {
       enabled: false,
@@ -64,7 +68,8 @@ module.exports = {
 
   clientModels: {
     enabled: true,
-    adapter: undefined
+    adapter: undefined,
+    destination: 'app/public/models'
   },
 
   csrf: {

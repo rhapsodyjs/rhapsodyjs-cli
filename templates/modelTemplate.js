@@ -10,7 +10,8 @@ module.exports = {
 	options: {
 		allowREST: true,
 		middlewares: [],
-		adapter: undefined
+		adapter: undefined,
+		generateClientModel: true
 	},
 
 	relationships: { }
