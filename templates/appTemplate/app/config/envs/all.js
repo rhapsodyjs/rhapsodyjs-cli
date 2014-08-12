@@ -23,7 +23,8 @@ module.exports = {
   },
   
   log: {
-      //For debug levels, see WolverineJS documentation: https://github.com/talyssonoc/wolverinejs
+      //Name of the debug level
+      //For more info about the settings, see WolverineJS documentation: https://github.com/talyssonoc/wolverinejs
       level: 'all',
 
       //if undefined, will print to the terminal
@@ -36,10 +37,18 @@ module.exports = {
       printLevel: true,
 
       //If true, shows the time the log was logged before the level name
-      time: true,
+      printTime: true,
 
       //If true, show and file and the line number of where the log was called
-      printFileInfo: true
+      printFileInfo: true,
+
+      //If the logger is using some driver, you should pass here the two
+      //attributes, like this:
+      //driver: {
+      //  lib: require(driverName),
+      //  config: driverCOnfig
+      //}
+      driver: undefined
   },
 
   routes: {
