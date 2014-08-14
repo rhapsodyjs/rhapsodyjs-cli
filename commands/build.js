@@ -8,3 +8,5 @@ module.exports = function(msg, server) {
 	  return;
 	}
 };
+
+module.exports.help = 'Build the server without run it';

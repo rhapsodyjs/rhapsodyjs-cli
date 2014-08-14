@@ -1,7 +1,7 @@
 var fs = require('fs-extra'),
     path = require('path'),
     Wolverine = require('wolverine'),
-    Logger = new Wolverine({time: false, printLevel: false}),
+    Logger = new Wolverine({ printTime: false, printLevel: false }),
     _ = require('lodash');
 
 module.exports = function scaffoldModel(modelName, attributes) {
@@ -39,10 +39,16 @@ module.exports = function scaffoldModel(modelName, attributes) {
 	});
 
 	try {
-	  fs.writeFile(path.join(appPath, '/app/models/' + modelName + '.js'), modelString, function(err) {
+	  fs.writeFile(path.join(appPath, '/app/models/' + modelName + '.js'), modelString, { flag: 'wx'}, function(err) {
 		if(err) {
-		  return Logger.error(err);
+			if(err.code = 'EEXIST') {
+				return Logger.error('Model ' + modelName + ' already exists');
+			}
+			return Logger.error(err.type);
 		}
+
+		Logger.info('Model ' + modelName + ' created');
+
 	  });
 	}
 	catch(e) {

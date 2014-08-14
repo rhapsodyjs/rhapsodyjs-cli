@@ -1,24 +1,24 @@
 var Wolverine = require('wolverine');
 
 module.exports = function(options) {
-	options = options || { printLevel: false, time: false };
+	options = options || { printLevel: false, printTime: false };
 
 	var Logger = new Wolverine(options);
 
 	Logger.addLevel('required', {
-	  color: 'red'
+		color: 'red'
 	});
 
 	Logger.addLevel('usage', {
-	  bold: 'true'
+		bold: 'true'
 	});
 
 	Logger.addLevel('optionsTitle', {
-	  color: 'brightWhite'
+		color: 'white'
 	});
 
 	Logger.addLevel('showOptions', {
-	  color: 'grey'
+		color: 'grey'
 	});
 
 	return Logger;

@@ -7,12 +7,14 @@ module.exports = {
 
 	serverMethods: { },
 
+	relationships: { },
+
+	hooks: { },
+
 	options: {
 		allowREST: true,
 		middlewares: [],
 		adapter: undefined,
 		generateClientModel: true
-	},
-
-	relationships: { }
+	}
 };

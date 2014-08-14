@@ -12,3 +12,5 @@ module.exports = function(msg) {
 
 	};
 };
+
+module.exports.help = 'Create a new app';

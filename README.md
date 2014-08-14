@@ -20,9 +20,9 @@
 
 ### Run options
 
-* `-n` Not build (client models) before run
+* `-n` Do not build client models before run
 
-## Build (client models) but not run
+## Build client models but do not run the app
 
 ```sh
 	$ rhapsody-cli build

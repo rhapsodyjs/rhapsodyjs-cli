@@ -9,7 +9,7 @@ var parser = require('nomnom'),
     ServerOperations = require('./serverOperations'),
     path = require('path');
 
-parser.script('rhapsody');
+parser.script('rhapsody-cli');
 
 var Logger = getLogger();
 
@@ -20,23 +20,23 @@ var msg = new Messages(Logger),
  * Scaffolds a new project
  */
 var newCommand = require('./commands/new');
-parser.command('new').callback(newCommand(msg)).help('Create a new app');
-parser.command('n').callback(newCommand(msg)).help('Create a new app');
+parser.command('new').callback(newCommand(msg)).help(newCommand.help);
+parser.command('n').callback(newCommand(msg)).help(newCommand.help);
 
 
 /**
  * Scaffolds a new controller or model
  */
 var generateCommand = require('./commands/generate');
-parser.command('generate').callback(generateCommand(msg)).help('Generate a new controller or model');
-parser.command('g').callback(generateCommand(msg)).help('Generate a new controller or model');
+parser.command('generate').callback(generateCommand(msg)).help(generateCommand.help);
+parser.command('g').callback(generateCommand(msg)).help(generateCommand.help);
 
 
 /**
  * Builds the project without run the server
  */
 var buildCommand = require('./commands/build');
-parser.command('build').callback(buildCommand(msg, server)).help('Build the server without run it');
+parser.command('build').callback(buildCommand(msg, server)).help(buildCommand.help);
 
 
 /**
@@ -44,11 +44,6 @@ parser.command('build').callback(buildCommand(msg, server)).help('Build the serv
  */
 var runCommand = require('./commands/run');
 parser.command('run')
-.option('no-build', {
-  abbr: 'n',
-  full: 'no-build',
-  flag: true,
-  help: 'Don\'t build again, just run'
-}).callback(runCommand(msg, server)).help('Build the server then run it. If -n or --no-build is passed, run the server without build it');
+.options(runCommand.options).callback(runCommand(msg, server)).help(runCommand.help);
 
 parser.parse();
