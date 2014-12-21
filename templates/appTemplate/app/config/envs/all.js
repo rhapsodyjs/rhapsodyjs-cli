@@ -14,7 +14,7 @@ module.exports = {
 
   methodOverride: {
     enabled: false,
-    attributeName: 'newMethod'
+    attributeName: ''
   },
 
   database: {
@@ -63,10 +63,11 @@ module.exports = {
   },
 
   globals: {
+    // Allow to set the models as globals, so you don't need to use Rhapsody.requireModel(modelName)
     models: false
   },
 
-  //If true, uploaded files via form will be at req.file
+  //If set to true, uploaded files via form will be at req.file
   upload: {
       enabled: false,
   },
@@ -85,7 +86,9 @@ module.exports = {
     enabled: false
   },
 
+  //Enable it if you want that RhapsodyJS run a process to each one
+  //of your CPUs, making your app more scalable
   cluster: {
-    enabled: true
+    enabled: false
   }
 };

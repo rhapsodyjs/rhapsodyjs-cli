@@ -4,25 +4,89 @@
   <title>Hello, RhapsodyJS!</title>
 
   <style>
-    body {
+    body, html {
+      height: 100%;
+      width: 100%;
       margin: 0;
       padding: 0;
-      font-family: arial;
+    }
+
+    body {
+      font-family: helvetica, verdana, sans;
+    }
+
+    a {
+      color: black;
+    }
+
+    #wrapper {
+      display: inline-table;
+      width: 100%;
+      height: 100%;
+    }
+
+    #container {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
     }
 
     #content {
-      margin: 100px auto;
-      width: 900px;
+      display: inline-block;
+      width: 500px;
+      border-radius: 4px;
+      border: 3px solid rgba(0, 0, 0, 0.2);
+    }
+
+    #logo {
+      background: #2a2a2a;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      padding: 10px;
       text-align: center;
     }
+
+    #logo img {
+      height: 150px;
+    }
+
+    #text {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .highlight {
+      font-weight: bold;
+      padding: 1px 5px;
+      border-radius: 1px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.03);
+      color: rgba(0, 0, 0, 0.6);
+    }
+    
   </style>
 </head>
 <body>
-  <div id="content">
-    <img src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="">
-    <h1>Welcome to RhapsodyJS!</h1>
-    <h2>You must be new here</h2>
-    <h2>For a better explanation, acess the <a target="_blank" href="http://rhapsodyjs.github.io/">documentation</a></h2>
+  <div id="wrapper">
+    <div id="container">
+      <div id="content">
+        <div id="logo">
+          <img src="logo.png" alt="RhapsodyJS">
+        </div>
+        <div id="text">
+          <h2>Hey, you must be new here!</h2>
+          <p>
+            You're now at the <span class="highlight">index</span> view of the <span class="highlight">main</span> controller.
+          </p>
+          <p>
+            Go to <span class="highlight">app/controllers/main/index.js</span> to edit it and create new views for this controller.
+          </p>
+          <p>
+            For for information about how to use RhapsodyJS and all its features visit the <a target="_blank" href="http://rhapsodyjs.github.io/docs">documentation</a>.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   

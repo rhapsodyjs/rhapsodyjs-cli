@@ -18,7 +18,7 @@ Messages.prototype = {
     */
     usage: function usage(example) {
         this.Logger.info();
-        return this.Logger.usage('Usage: rhapsody ' + example);
+        return this.Logger.usage('Usage: rhapsody-cli ' + example);
     },
 
     /**
@@ -28,7 +28,7 @@ Messages.prototype = {
     */
     showOptions: function showOptions(command, options) {
         var opt,
-        option;
+            option;
     
         this.Logger.info();
         this.Logger.optionsTitle(command);
