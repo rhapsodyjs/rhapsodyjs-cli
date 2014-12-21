@@ -3,13 +3,17 @@ var http = require('http'),
 
 module.exports = {
   error404Handler: function(req, res) {
+    Rhapsody.log.error('Error 404', req.originalUrl);
+
     var code = 404;
     if(req.xhr) {
       res.send(code, http.STATUS_CODES[code]);
     }
     else {
       res.status(code);
-      res.render(path.join(__dirname, '/' + code));      
+      res.render(path.join(__dirname, '/' + code), {
+        page: req.originalUrl
+      });      
     }
   },
 
@@ -22,7 +26,10 @@ module.exports = {
     }
     else {
       res.status(code);
-      res.render(path.join(__dirname, '/' + code));      
+      res.render(path.join(__dirname, '/' + code), {
+        error: err.toString(),
+        stack: err.stack.split('\n').slice(1)
+      });      
     }
 
     //Give time to send the 500 error page
